@@ -9,6 +9,7 @@ import { AuthService } from './modules/auth/auth.service';
 import { ProductService } from './modules/product/product.service';
 import { ProductController } from './modules/product/product.controller';
 import { ProductEntity } from './modules/product/product.entity/product.entity';
+import { ProfileEntity } from './modules/auth/entities/profile.entity/profile.entity';
 
 @Module({
   imports: [
@@ -22,7 +23,7 @@ import { ProductEntity } from './modules/product/product.entity/product.entity';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
-    TypeOrmModule.forFeature([RegisterEntity, ProductEntity]),
+    TypeOrmModule.forFeature([RegisterEntity, ProductEntity, ProfileEntity]),
   ],
   controllers: [AppController, AuthController, ProductController],
   providers: [AppService, AuthService, ProductService],

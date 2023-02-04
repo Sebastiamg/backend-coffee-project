@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { ProfileEntity } from '../profile.entity/profile.entity';
 
 @Entity()
 export class RegisterEntity {
@@ -16,4 +23,11 @@ export class RegisterEntity {
 
   @Column()
   status: boolean;
+
+  @OneToOne(() => ProfileEntity, {
+    eager: true,
+    cascade: true,
+  })
+  @JoinColumn({ name: 'user_profile' })
+  profile: ProfileEntity;
 }
