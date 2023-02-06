@@ -9,7 +9,6 @@ import {
   Put,
   Res,
 } from '@nestjs/common';
-import { ProfileDto } from '../dto/profile-dto/profile-dto';
 import { UserRegisterDto } from '../dto/register-dto/register-dto';
 import { AuthService } from './auth.service';
 
@@ -32,7 +31,7 @@ export class AuthController {
       });
   }
 
-  // get user by email and id
+  // get user by email and id with Post
   @Post('get')
   getUser(
     @Body() userItem: { email: string; password: string },
