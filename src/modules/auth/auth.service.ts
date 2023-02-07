@@ -81,6 +81,8 @@ export class AuthService {
 
   //Delete one user from db
   async deleteUser(id: number) {
-    return await this.registerRepositoy.delete(id);
+    return await this.registerRepositoy.delete(id).then(() => {
+      this.profileUserReposotory.delete(id);
+    });
   }
 }
