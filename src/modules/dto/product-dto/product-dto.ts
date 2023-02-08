@@ -7,3 +7,4 @@ export class ProductDto {
   image: string;
   status: boolean;
 }
+// Data Transfer Object;
